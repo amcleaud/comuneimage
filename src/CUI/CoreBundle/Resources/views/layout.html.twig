@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{% block title %}{{ nomsite }}{% endblock %}</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		{% block stylesheets  %}
+
+			{% stylesheets filter='cssrewrite, ?scssphp' 'bundles/cuicore/css/main.css' %}
+			{% endstylesheets %}
+
+		{% endblock %}
+
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+		<div id="header" >
+			<h1>Agence conseil specialiste en communication depuis 2005</h1>
+		</div>
+		<div class="clearfix"></div>
+
+		{{ render(controller("CUICoreBundle:Core:menu")) }}
+
+		<div id="content">
+
+			<div id="banniere" class="jumbotron">
+				<div id="carousel-principal" class="carousel slide" data-ride="carousel">
+					<div id="carousel" class="carousel-inner" role="listbox">
+						{% block banniere %}{% endblock %}
+					</div>
+				</div>
+
+				<div id="versCatalogue">
+					<a href="#">
+						{% block btnCatalogue %}
+							{% image 'bundles/cuicore/images/btn_catalogue_blanc.png' %}
+							    <img src="{{ asset_url }}" alt="Consultez notre catalogue en ligne" />
+							{% endimage %}
+						{% endblock %}
+					</a>
+				</div>
+
+				<div class="col-md-6 col-md-offset-3" id="descBanniere">
+					{% block descriptionBanniere %}{% endblock %}
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+
+			{% block content %}{% endblock %}
+
+		</div>
+
+		{{ render(controller("CUICoreBundle:Core:footer")) }}
+
+	</div>
+
+		{% block javascripts %}
+
+		    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		    {% javascripts filter='?jsqueeze' 'bundles/cuicore/js/main.js' %}
+			    <script type="text/javascript" src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+
+		{% endblock %}
+
+	</body>
+</html>

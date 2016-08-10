@@ -1,0 +1,57 @@
+<footer>
+	<div class="container-fluid">
+
+		<div class="row" id="contact">
+
+			<div id="contact_infos" >
+				<h1>Contactez-nous</h1>
+				<h3>{{ contact_rue }}, {{ contact_cp }} {{ contact_ville }}</h3>
+				<h2>{{ contact_tel }}</h2>
+				<h4><a href="mailto:{{ contact_mail }}">{{ contact_mail }}</a></h4>
+			</div>
+
+			<div id="contact_follow">
+				<h1>Suivez-nous</h1>
+				<p>
+					<a href="https://fr-fr.facebook.com/Com.une.image/" target="_BLANK">
+						{% image 'bundles/cuicore/images/logo_fb_contact.png' %}
+						    <img src="{{ asset_url }}" alt="facebook" />
+						{% endimage %}
+					</a>
+					<a href="#" target="_BLANK">
+						{% image 'bundles/cuicore/images/logo_lkdn_contact.png' %}
+						    <img src="{{ asset_url }}" alt="Linkedin" />
+						{% endimage %}
+					</a>
+				</p>
+			</div>
+
+		</div>
+
+		<div class="row" id="final_footer">
+			<div class="col-md-8 col-md-offset-2">
+				{% for rub in menu %}
+					<div class="col-md-{{ nbrub }} footer_section">
+						<h1>{{ rub.nom }}</h1>
+						<ul class="nav nav-pills nav-stacked">
+							{% for page in rub.pages %}
+				            	<li><a href="{{ path('cui_pages_view', {'id': page.id, 'lien': page.lien}) }}">{{ page.nom }}</a></li>
+				            {% endfor %}
+				        </ul>
+				    </div>
+			    {% endfor %}
+
+				<div class="col-md-{{ nbrub }} footer_section" id="final_infos">
+					<ul class="nav nav-pills nav-stacked">
+						<li>© 2016 Com' &amp; une image</li>
+						<li><a href="#">Mentions Légales</a></li>
+						<li><a href="#">Conditions générales de vente</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>

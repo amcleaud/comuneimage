@@ -1,0 +1,41 @@
+{% extends "CUIPagesBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ rubrique }} - {{ titre }}{% endblock %}
+
+{% block banniere %}
+	<div class="item active">
+		{% image 'bundles/cuipages/images/bandeau_pages.jpg' %}
+		    <img src="{{ asset_url }}" alt="banniere" />
+		{% endimage %}
+	</div>
+	<div class="item active">
+		{% image 'bundles/cuipages/images/bandeau_pages.jpg' %}
+		    <img src="{{ asset_url }}" alt="banniere" />
+		{% endimage %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div id="header-page">
+
+			<h1>{{ rubrique|upper }}</h1>
+
+			<h2>{{ titre|upper }}</h2>
+
+		</div>
+
+		<div id="contenu-page">{{ contenu }}</div>
+	</div>
+{% endblock %}
+
+{% block stylesheets %}
+
+	{% stylesheets filter='cssrewrite, ?scssphp'
+	'bundles/cuicore/css/main.css'
+	'bundles/cuipages/css/view.css'
+	 %}
+	  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+
+{% endblock %}

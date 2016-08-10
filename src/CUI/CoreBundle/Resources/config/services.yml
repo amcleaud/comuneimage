@@ -1,0 +1,4 @@
+services:
+#    cui_core.example:
+#        class: CUI\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

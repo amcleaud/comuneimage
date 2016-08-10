@@ -1,0 +1,16 @@
+#header-page h1 {
+	color: #E42A30;
+	font-family:  Arvo;
+	font-size: 42px;
+}
+
+#header-page h2 {
+	color: #2FBCCC;
+	font-family:  Arvo;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#contenu-page {
+	padding: 20px 0;
+}

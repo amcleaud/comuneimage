@@ -1,0 +1,92 @@
+{% extends "CUICoreBundle::layout.html.twig" %}
+
+{% block banniere %}
+	<div class="item active">
+		<a href="{{ path('cui_core_home') }}">
+			{% image 'bundles/cuicore/images/bandeau_haut.jpg' %}
+			    <img src="{{ asset_url }}" alt="banniere" />
+			{% endimage %}
+		</a>
+	</div>
+	<div class="item">
+		<a href="http://stimactiv.com" target="_BLANK">
+		{% image 'bundles/cuicore/images/bandeau_haut_2.jpg' %}
+		    <img src="{{ asset_url }}" alt="banniere" />
+		{% endimage %}
+		</a>
+	</div>
+	<div class="item">
+		<a href="#">
+			{% image 'bundles/cuicore/images/bandeau_haut_3.jpg' %}
+			    <img src="{{ asset_url }}" alt="banniere" />
+			{% endimage %}
+		</a>
+	</div>
+{% endblock %}
+
+{% block descriptionBanniere %}
+	<div class="col-md-4">
+		<h1 id="titreEchanger">Échanger</h1>
+		<p>Un objet unique qui associera couleurs, formes, matières et fonctions, afin de raconter une histoire, susciter une émotion.</p>
+	</div>
+	<div class="col-md-4">
+		<h1 id="titreProposer">Proposer</h1>
+		<p>Un objet unique qui associera couleurs, formes, matières et fonctions, afin de raconter une histoire, susciter une émotion.</p>
+	</div>
+	<div class="col-md-4">
+		<h1 id="titreConcevoir">Concevoir</h1>
+		<p>Un objet unique qui associera couleurs, formes, matières et fonctions, afin de raconter une histoire, susciter une émotion.</p>
+	</div>
+{% endblock %}
+
+{% block btnCatalogue %}
+	{% image 'bundles/cuicore/images/btn_catalogue.png' %}
+	    <img src="{{ asset_url }}" alt="Consultez notre catalogue en ligne" />
+	{% endimage %}
+{% endblock %}
+
+{% block content %}
+
+	<div id="pointsforts">
+
+		{% image 'bundles/cuicore/images/picto_conseil.png' %}
+		    <img src="{{ asset_url }}" alt="conseil" />
+		{% endimage %}
+
+		{% image 'bundles/cuicore/images/picto_creativite.png' %}
+		    <img src="{{ asset_url }}" alt="créativité" />
+		{% endimage %}
+
+		{% image 'bundles/cuicore/images/picto_sourcing.png' %}
+		    <img src="{{ asset_url }}" alt="sourcing" />
+		{% endimage %}
+
+		{% image 'bundles/cuicore/images/picto_production.png' %}
+		    <img src="{{ asset_url }}" alt="production" />
+		{% endimage %}
+
+		{% image 'bundles/cuicore/images/picto_logistique.png' %}
+		    <img src="{{ asset_url }}" alt="logistique" />
+		{% endimage %}
+
+	</div>
+
+	<div id="coupdecoeur">
+		<h2>Découvrez</h2>
+		<h1>nos coups de coeur</h1>
+	</div>
+
+{% endblock %}
+
+
+
+{% block stylesheets %}
+
+	{% stylesheets filter='cssrewrite, ?scssphp'
+	'bundles/cuicore/css/main.css'
+	'bundles/cuicore/css/home.css'
+	 %}
+	  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+
+{% endblock %}

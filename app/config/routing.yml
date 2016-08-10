@@ -1,0 +1,8 @@
+cui_core:
+    resource: "@CUICoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cui_pages:
+    resource: "@CUIPagesBundle/Resources/config/routing.yml"
+    prefix:   /p/
+

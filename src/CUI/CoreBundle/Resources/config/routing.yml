@@ -1,0 +1,6 @@
+# src/CUI/CoreBundle/Resources/config/routing.yml
+
+cui_core_home:
+    path: /
+    defaults:
+        _controller: CUICoreBundle:Core:index

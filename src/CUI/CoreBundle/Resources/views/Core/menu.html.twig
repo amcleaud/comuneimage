@@ -1,0 +1,35 @@
+<nav class="navbar navbar-principal">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+
+		    <a class="navbar-brand" href="{{ path('cui_core_home') }}">
+		    	{% image 'bundles/cuicore/images/logo.png' %}
+				    <img src="{{ asset_url }}" alt="Logo CUI" />
+				{% endimage %}
+		    </a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="menu-principal">
+			<ul class="nav navbar-nav">
+				{% for rub in menu %}
+					<li class="dropdown">
+						<a href="javascript:void()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ rub.nom }}</a>
+						<ul class="dropdown-menu">
+							{% for page in rub.pages %}
+				            	<li><a href="{{ path('cui_pages_view', {'id': page.id, 'lien': page.lien}) }}">{{ page.nom }}</a></li>
+				            {% endfor %}
+				        </ul>
+				    </li>
+			    {% endfor %}
+
+			    <li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>

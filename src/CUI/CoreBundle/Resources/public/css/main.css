@@ -1,0 +1,348 @@
+/*# sourceMappingURL=arvo.css.map */
+
+/* BEGIN Regular */
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/arvo/Regular/Arvo-Regular.eot?v=1.1.0");
+  src: url("../fonts/arvo/Regular/Arvo-Regular.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/arvo/Regular/Arvo-Regular.otf?v=1.1.0") format("otf"), url("../fonts/arvo/Regular/Arvo-Regular.woff?v=1.1.0") format("woff"), url("../fonts/arvo/Regular/Arvo-Regular.ttf?v=1.1.0") format("truetype"), url("../fonts/arvo/Regular/Arvo-Regular.svg?v=1.1.0#Regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/arvo/Italic/Arvo-Italic.eot?v=1.1.0");
+  src: url("../fonts/arvo/Italic/Arvo-Italic.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/arvo/Italic/Arvo-Italic.otf?v=1.1.0") format("otf"), url("../fonts/arvo/Italic/Arvo-Italic.woff?v=1.1.0") format("woff"), url("../fonts/arvo/Italic/Arvo-Italic.ttf?v=1.1.0") format("truetype"), url("../fonts/arvo/Italic/Arvo-Italic.svg?v=1.1.0#Italic") format("svg");
+  font-weight: normal;
+  font-style: italic; }
+/* END Italic */
+/* BEGIN Bold */
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/arvo/Bold/Arvo-Bold.eot?v=1.1.0");
+  src: url("../fonts/arvo/Bold/Arvo-Bold.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/arvo/Bold/Arvo-Bold.otf?v=1.1.0") format("otf"), url("../fonts/arvo/Bold/Arvo-Bold.woff?v=1.1.0") format("woff"), url("../fonts/arvo/Bold/Arvo-Bold.ttf?v=1.1.0") format("truetype"), url("../fonts/arvo/Bold/Arvo-Bold.svg?v=1.1.0#Bold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: 'Arvo';
+  src: url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.eot?v=1.1.0");
+  src: url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.otf?v=1.1.0") format("otf"), url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.woff?v=1.1.0") format("woff"), url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.ttf?v=1.1.0") format("truetype"), url("../fonts/arvo/BoldItalic/Arvo-BoldItalic.svg?v=1.1.0#BoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+/* END Bold Italic */
+
+@font-face {
+  font-family: 'ReplicaFtt';
+  src: url("../fonts/jonzejonzing/Regular/JonzeJonzing-Regular.ttf?v=1.1.0") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  font-family: arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+nav {
+  position: relative;
+  z-index: 100;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-principal {
+  margin-bottom: 0;
+}
+
+.navbar-principal, .navbar-principal .open a, .navbar-principal .dropdown-menu {
+  background-color: #3E3B44;
+  border-radius: unset;
+}
+
+@media (min-width: 768px) {
+    .navbar-principal .container-fluid div {
+        display: inline-block !important;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar-principal .container-fluid {
+        text-align: center;
+    }
+}
+
+.navbar-principal li a {
+  color: white;
+  font-family: Arvo;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.navbar-principal li a:focus,
+.navbar-principal li a:hover,
+
+.navbar-principal .open a:hover,
+.navbar-principal .open a:focus {
+  background-color: #2E2B34;
+  color: white;
+}
+
+.navbar-principal .navbar-brand {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height:80px;
+}
+
+.navbar-principal .navbar-toggle {
+  margin-top: 23px;
+}
+
+.navbar-principal .icon-bar {
+  background-color: white;
+}
+
+#header {
+  z-index: 80;
+  position: relative;
+}
+
+#header h1 {
+  font-family: ReplicaFtt;
+  font-size: 32px;
+  color: #E9701F;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+  padding-left: 80px;
+  background: url('../images/petit_bandeau_pages.jpg') repeat center top #B71E20;
+  background-size: 100%;
+}
+
+@media (max-width:767px) {
+  #header h1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.navbar-brand img {
+  margin-top: -50%;
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    padding-right:0;
+  }
+  .navbar-brand img {
+    width:120px;
+    margin-top: -50px;
+  }
+  .navbar-principal li a {
+    font-size:  16px;
+  }
+}
+
+
+
+#contact {
+  background: url('../images/bandeau_contact.jpg') repeat-x center top #B71E20;
+  text-align: center;
+  color: #F1CED0;
+  padding: 35px 0;
+}
+
+#contact a {
+  color: #F1CED0;
+  text-decoration: none;
+}
+
+#contact a img {
+  margin: 0 5px;
+}
+
+#contact h1 {
+ font-family:  Arvo;
+ font-weight: bold;
+ font-size: 28px;
+ color: white;
+}
+
+#contact h2,#contact h3,#contact h4 {
+  margin: 0;
+  text-transform: unset;
+}
+
+#contact h2 {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+#contact h3 {
+  font-size: 18px;
+}
+
+#contact h4 {
+  font-size: 15px;
+}
+
+#contact_follow h1 {
+  font-size: 20px;
+}
+
+#final_footer {
+  background-color: #3E3B44;
+  color: #F1CED0;
+  padding: 25px 0 90px 0;
+}
+
+#final_footer a {
+  color: #F1CED0;
+  text-decoration: none;
+}
+
+#final_footer h1 {
+  font-family: Arvo;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 3px solid #E86F1E;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-top: 0;
+}
+
+#final_footer .nav li a {
+  padding:0;
+  line-height: 0.9em;
+}
+
+#final_footer .nav li a:hover, #final_footer .nav li a:focus {
+  background-color: unset;
+  color: #E86F1E;
+}
+
+#final_infos .nav li a {
+  line-height: 1.42857143em;
+}
+
+@media (max-width:992px) {
+   #final_footer {
+      text-align: center;
+   }
+   .footer_section {
+      margin-top: 25px;
+      margin-bottom: 25px;
+   }
+   #final_footer .nav li a {
+    line-height: 1.45em;
+    font-size: 20px;
+  }
+}
+
+#carousel, #carousel-principal {
+  height: 400px;
+}
+
+#carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+#carousel img {
+  min-width:100%;
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-width: unset;
+  max-height: 400px;
+}
+
+@media (max-width: 767px) {
+  #carousel-principal {
+    height: 300px;
+    width: 100%;
+  }
+  #carousel img {
+    height: 300px;
+  }
+}
+
+#banniere {
+  position: relative;
+  padding: 0;
+  background-color: white;
+}
+
+#banniere .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#banniere h1 {
+  font-family: Arvo;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border-bottom: 5px solid #333;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 991px) {
+  #banniere h1 {
+  display: inline-block;
+  font-size: 36px;
+}
+}
+
+#banniere p {
+  font-size: 16px;
+  color: #949197;
+  margin-top: 20px;
+}
+
+#descBanniere {
+  padding-bottom: 30px;
+}
+
+#versCatalogue {
+  position: relative;
+  margin-top: -120px;
+  text-align: center;
+  padding-left: 600px;
+  margin-bottom: -25px;
+}
+
+@media (max-width:1280px) {
+  #versCatalogue {
+    padding-left:450px;
+  }
+}
+
+@media (max-width:992px) {
+  #versCatalogue {
+    padding-left:0;
+  }
+}
+
+@media (max-width:767px) {
+  #versCatalogue img {
+    width: 354px;
+    max-width: 100%;
+  }
+  #versCatalogue {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+  }
+}
