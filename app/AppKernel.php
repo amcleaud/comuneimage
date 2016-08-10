@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new CUI\PagesBundle\CUIPagesBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new CUI\CoreBundle\CUICoreBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
