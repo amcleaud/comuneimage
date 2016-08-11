@@ -8,7 +8,7 @@
    ☐ créer la route
    ☐ mettre à jour le controleur Pages
    ☐ mettre à jour le lien dans le footer
- ☐ @high AJOUTER mini menu fixed à droite
+ ✔ @high AJOUTER mini menu fixed à droite @done (16-08-11 15:05)
 
  ☐ @high MAJ lien vers linkedin
  ☐ @high MAJ lien vers catalogue
@@ -30,7 +30,8 @@
      ☐ créer la vue
      ☐ créer la route
      ☐ mettre à jour le controleur Coupdecoeur
-     ☐ mettre à jour le lien sur la page d'accueil du site
+     ☐ créer le lien sur la page d'accueil du site
+     ☐ mettre à jour le lien dans le mini meni
    ☐ créer la vue newsletter détaillée
      ☐ créer la vue
      ☐ créer la route
