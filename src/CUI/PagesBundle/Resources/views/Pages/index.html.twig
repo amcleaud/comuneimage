@@ -1,6 +1,6 @@
 {% extends "CUIPagesBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }} - {{ rubrique }} - {{ titre }}{% endblock %}
+{% block title %}{{ parent() }} - {{ page.rubrique.nom }} - {{ page.nom }}{% endblock %}
 
 {% block banniere %}
 	<div class="item active">
@@ -19,13 +19,13 @@
 	<div class="container">
 		<div id="header-page">
 
-			<h1>{{ rubrique|upper }}</h1>
+			<h1>{{ page.rubrique.nom|upper }}</h1>
 
-			<h2>{{ titre|upper }}</h2>
+			<h2>{{ page.titre|upper }}</h2>
 
 		</div>
 
-		<div id="contenu-page">{{ contenu }}</div>
+		<div id="contenu-page">{{ page.contenu }}</div>
 	</div>
 {% endblock %}
 
