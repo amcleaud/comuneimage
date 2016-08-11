@@ -54,6 +54,31 @@
 
 			<div class="clearfix"></div>
 
+			<div id="miniMenu" class="hidden-xs">
+				<ul class="nav nav-pills nav-stacked">
+					<li>
+						<a href="{{ facebook }}" target="_BLANK">
+						{#
+							{% image 'bundles/cuicore/images/minifacebook.png' %}
+							    <img src="{{ asset_url }}" alt="F" />
+							{% endimage %}
+						#}
+							F
+						</a>
+					</li>
+					<li>
+						<a href="">
+						{#
+							{% image 'bundles/cuicore/images/minicoeur.png' %}
+							    <img src="{{ asset_url }}" alt="&#9825;" />
+							{% endimage %}
+						#}
+							&#9825;
+						</a>
+					</li>
+				</ul>
+			</div>
+
 
 			{% block content %}{% endblock %}
 

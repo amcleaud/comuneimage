@@ -25,3 +25,4 @@ parameters:
     app_contact_rue: 3 impasse Boirac
     app_contact_tel: "03 80 73 09 90"
     app_contact_mail: contact@comuneimage.eu
+    app_facebook: "https://www.facebook.com/Com.une.image/"

@@ -44,6 +44,7 @@ twig:
         contact_rue: %app_contact_rue%
         contact_tel: %app_contact_tel%
         contact_mail: %app_contact_mail%
+        facebook: %app_facebook%
 
 # Doctrine Configuration
 doctrine:

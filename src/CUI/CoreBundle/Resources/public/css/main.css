@@ -63,7 +63,7 @@ nav {
 
 .navbar-principal, .navbar-principal .open a, .navbar-principal .dropdown-menu {
   background-color: #3E3B44;
-  border-radius: unset;
+  border-radius: 0;
 }
 
 @media (min-width: 768px) {
@@ -90,11 +90,14 @@ nav {
 
 .navbar-principal li a:focus,
 .navbar-principal li a:hover,
-
 .navbar-principal .open a:hover,
 .navbar-principal .open a:focus {
   background-color: #2E2B34;
   color: white;
+}
+
+.navbar-principal li .nofocus:focus, .navbar-principal .open .nofocus:focus {
+  background-color: transparent;
 }
 
 .navbar-principal .navbar-brand {
@@ -181,7 +184,7 @@ nav {
 
 #contact h2,#contact h3,#contact h4 {
   margin: 0;
-  text-transform: unset;
+  text-transform: none;
 }
 
 #contact h2 {
@@ -228,7 +231,7 @@ nav {
 }
 
 #final_footer .nav li a:hover, #final_footer .nav li a:focus {
-  background-color: unset;
+  background-color: transparent;
   color: #E86F1E;
 }
 
@@ -265,7 +268,7 @@ nav {
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-width: unset;
+  max-width: none;
   max-height: 400px;
 }
 
@@ -341,8 +344,30 @@ nav {
     max-width: 100%;
   }
   #versCatalogue {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     padding: 5px;
   }
+}
+
+#miniMenu {
+  position: fixed;
+  right:0;
+  top:30%;
+  background-color: #E8701E;
+  color: white;
+  border-radius: 5px 0 0 5px;
+  border: solid 1px white;
+  border-right-width: 0;
+}
+
+#miniMenu li a {
+  background-color: transparent;
+  color: white;
+  border-radius: 0;
+}
+
+#miniMenu li a:hover, #miniMenu li a:focus {
+  background-color: transparent;
+  color: white;
 }
