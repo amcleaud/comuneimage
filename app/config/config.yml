@@ -84,3 +84,5 @@ assetic:
         jsqueeze:   ~
         scssphp:
           formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+        jpegoptim:
+            bin: web/vendor/jpegoptim-1.4.3

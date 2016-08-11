@@ -4,12 +4,8 @@
 
 {% block banniere %}
 	<div class="item active">
-		{% image 'bundles/cuipages/images/bandeau_pages.jpg' %}
-		    <img src="{{ asset_url }}" alt="banniere" />
-		{% endimage %}
-	</div>
-	<div class="item active">
-		{% image 'bundles/cuipages/images/bandeau_pages.jpg' %}
+		{% image filter='jpegoptim'
+			'bundles/cuipages/images/bandeau_pages.jpg' output='/images/bandeau_pages.jpg' %}
 		    <img src="{{ asset_url }}" alt="banniere" />
 		{% endimage %}
 	</div>

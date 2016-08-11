@@ -3,21 +3,24 @@
 {% block banniere %}
 	<div class="item active">
 		<a href="{{ path('cui_core_home') }}">
-			{% image 'bundles/cuicore/images/bandeau_haut.jpg' %}
+			{% image  filter='jpegoptim'
+				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut.jpg' %}
 			    <img src="{{ asset_url }}" alt="banniere" />
 			{% endimage %}
 		</a>
 	</div>
 	<div class="item">
 		<a href="http://stimactiv.com" target="_BLANK">
-		{% image 'bundles/cuicore/images/bandeau_haut_2.jpg' %}
+			{% image  filter='jpegoptim'
+				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut_2.jpg' %}
 		    <img src="{{ asset_url }}" alt="banniere" />
 		{% endimage %}
 		</a>
 	</div>
 	<div class="item">
 		<a href="#">
-			{% image 'bundles/cuicore/images/bandeau_haut_3.jpg' %}
+			{% image  filter='jpegoptim'
+				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut_3.jpg' %}
 			    <img src="{{ asset_url }}" alt="banniere" />
 			{% endimage %}
 		</a>
