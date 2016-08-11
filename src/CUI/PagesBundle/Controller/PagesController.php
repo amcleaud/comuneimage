@@ -4,11 +4,10 @@ namespace CUI\PagesBundle\Controller;
 
 use CUI\PagesBundle\Entity\Rubrique;
 use CUI\PagesBundle\Entity\Page;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class AdvertController extends Controller
+class PagesController extends Controller
 {
     public function indexAction(Page $page_actuelle)
     {
@@ -32,7 +31,7 @@ class AdvertController extends Controller
     	} else {
     		return $this->render(
 
-    			'CUIPagesBundle:Advert:index.html.twig',
+    			'CUIPagesBundle:Pages:index.html.twig',
 
     			array(
     				'rubrique'=>$page_actuelle->getRubrique()->getNom(),

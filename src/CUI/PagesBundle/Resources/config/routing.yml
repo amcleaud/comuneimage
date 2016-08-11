@@ -1,7 +1,7 @@
 cui_pages_view:
     path: /p/{id}-{lien}
     defaults:
-      _controller: CUIPagesBundle:Advert:index
+      _controller: CUIPagesBundle:Pages:index
     requirements:
       id: '[0-9]+'
       lien: '^[a-zA-Z0-9_-]+\.html$'
