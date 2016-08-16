@@ -235,6 +235,11 @@ nav {
   color: #E86F1E;
 }
 
+footer .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 #final_infos .nav li a {
   line-height: 1.42857143em;
 }

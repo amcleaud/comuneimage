@@ -4,15 +4,15 @@
 }
 
 #banniere {
-  margin-top: -180px;
+  margin-top: -168px;
 }
 
 #carousel, #carousel-principal {
-  height: 793px;
+  height: 679px;
 }
 
 #carousel img {
-  max-height: 793px;
+  max-height: 679px;
 }
 
 @media (max-width: 767px) {
