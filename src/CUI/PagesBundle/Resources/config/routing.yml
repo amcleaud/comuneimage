@@ -1,5 +1,5 @@
 cui_pages_view:
-    path: /p/{id}-{lien}
+    path: /{id}-{lien}
     defaults:
       _controller: CUIPagesBundle:Pages:index
     requirements:

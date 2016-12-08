@@ -52,6 +52,11 @@ nav {
   z-index: 100;
 }
 
+hr {
+  border-top-color: #333;
+  max-width: 200px;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -300,17 +305,24 @@ footer .row {
 
 #banniere h1 {
   font-family: Arvo;
-  font-size: 1.6vw;
+  font-size: 30px;
   font-weight: bold;
   border-bottom: 5px solid #333;
   padding-bottom: 5px;
+  color: #333;
+}
+
+@media (max-width: 1370px) {
+  #banniere h1 {
+   font-size: 24px;
+  }
 }
 
 @media (max-width: 991px) {
   #banniere h1 {
-  display: inline-block;
-  font-size: 36px;
-}
+    display: inline-block;
+    font-size: 36px;
+  }
 }
 
 #banniere p {
@@ -361,7 +373,7 @@ footer .row {
   top:30%;
   background-color: #E8701E;
   color: white;
-  border-radius: 5px 0 0 5px;
+  border-radius: 8px 0 0 8px;
   border: solid 1px white;
   border-right-width: 0;
 }
@@ -372,7 +384,47 @@ footer .row {
   border-radius: 0;
 }
 
+#miniMenu li a img {
+  width: 25px;
+}
+
 #miniMenu li a:hover, #miniMenu li a:focus {
   background-color: transparent;
   color: white;
+}
+
+.photoCadeauSlide, .photoCadeauSlide .carousel-inner  {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+.photoCadeauSlide .carousel-control,
+.photoCadeauSlide .carousel-control:active,
+.photoCadeauSlide .carousel-control:visited,
+.photoCadeauSlide .carousel-control:focus,
+.photoCadeauSlide .carousel-control:hover {
+  color: #333333;
+}
+
+.photoCadeauSlide .carousel-indicators {
+  bottom: -40px;
+}
+
+.photoCadeauSlide .carousel-indicators li, .photoCadeauSlide .carousel-indicators li:active {
+  border-color: #333333;
+}
+
+.photoCadeauSlide .carousel-indicators .active {
+  background-color: #333333;
+}
+
+.panel-body .carousel, .panel-body p {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 450px;
+}
+
+.panel {
+  max-width: 600px;
 }

@@ -6,12 +6,11 @@
 
 		<title>{% block title %}{{ nomsite }}{% endblock %}</title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 		{% block stylesheets  %}
 
-			{% stylesheets filter='cssrewrite, ?scssphp' 'bundles/cuicore/css/main.css' %}
-			{% endstylesheets %}
+		<link rel="stylesheet" href="{{ asset('bundles/cuicore/css/bootstrap.min.css') }}" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="{{ asset('bundles/cuicore/css/main.css') }}" crossorigin="anonymous">
 
 		{% endblock %}
 
@@ -40,9 +39,7 @@
 				<div id="versCatalogue">
 					<a href="#">
 						{% block btnCatalogue %}
-							{% image 'bundles/cuicore/images/btn_catalogue_blanc.png' %}
-							    <img src="{{ asset_url }}" alt="Consultez notre catalogue en ligne" />
-							{% endimage %}
+							<img src="{{ asset('bundles/cuicore/images/btn_catalogue_blanc.png') }}" alt="Consultez notre catalogue en ligne" />
 						{% endblock %}
 					</a>
 				</div>
@@ -58,22 +55,12 @@
 				<ul class="nav nav-pills nav-stacked">
 					<li>
 						<a href="{{ facebook }}" target="_BLANK">
-						{#		A DECOMMENTER APRES AVOIR CORRIGE L'URL
-							{% image 'bundles/cuicore/images/minifacebook.png' %}
-							    <img src="{{ asset_url }}" alt="F" />
-							{% endimage %}
-						#}
-							F
+							<img src="{{ asset('bundles/cuicore/images/minifacebook.png') }}" alt="F" />
 						</a>
 					</li>
 					<li>
-						<a href="">
-						{#		A DECOMMENTER APRES AVOIR CORRIGE L'URL
-							{% image 'bundles/cuicore/images/minicoeur.png' %}
-							    <img src="{{ asset_url }}" alt="&#9825;" />
-							{% endimage %}
-						#}
-							&#9825;
+						<a href="{{ path('cui_coupdecoeur_index') }}">
+							<img src="{{ asset('bundles/cuicore/images/minicoeur.png') }}" alt="&#9825;" />
 						</a>
 					</li>
 				</ul>
@@ -89,13 +76,9 @@
 	</div>
 
 		{% block javascripts %}
-
-		    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-		    {% javascripts filter='?jsqueeze' 'bundles/cuicore/js/main.js' %}
-			    <script type="text/javascript" src="{{ asset_url }}"></script>
-			{% endjavascripts %}
+		    <script src="{{ asset('bundles/cuicore/js/jquery-3.1.1.min.js') }}" crossorigin="anonymous"></script>
+		    <script src="{{ asset('bundles/cuicore/js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+		    <script src="{{ asset('bundles/cuicore/js/main.js') }}" crossorigin="anonymous"></script>
 
 		{% endblock %}
 

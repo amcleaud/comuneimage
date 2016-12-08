@@ -1,0 +1,23 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/skins/sonata/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/markdown/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/html/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/textile/style.css') }}" type="text/css" />
+     %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/markdown/set.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/html/set.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/textile/set.js') }}"></script>
+{% endblock %}
+

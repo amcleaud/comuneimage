@@ -7,3 +7,37 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    admin.rubrique:
+      class:  CUI\PagesBundle\Admin\RubriqueAdmin
+      arguments: [~, CUI\PagesBundle\Entity\Rubrique, ~]
+      tags:
+        - { name: sonata.admin, manager_type: orm, label: Rubrique }
+
+    admin.page:
+      class:  CUI\PagesBundle\Admin\PageAdmin
+      arguments: [~, CUI\PagesBundle\Entity\Page, ~]
+      tags:
+        - { name: sonata.admin, manager_type: orm, label: Page }
+
+    admin.newsletter:
+      class:  CUI\CoupdecoeurBundle\Admin\NewsletterAdmin
+      arguments: [~, CUI\CoupdecoeurBundle\Entity\Newsletter, ~]
+      tags:
+        - { name: sonata.admin, manager_type: orm, label: Newsletter }
+
+    admin.cadeau:
+      class:  CUI\CoupdecoeurBundle\Admin\CadeauAdmin
+      arguments: [~, CUI\CoupdecoeurBundle\Entity\Cadeau, ~]
+      tags:
+        - { name: sonata.admin, manager_type: orm, label: Cadeau }
+
+    admin.photo:
+      class:  CUI\CoupdecoeurBundle\Admin\PhotoAdmin
+      arguments: [~, CUI\CoupdecoeurBundle\Entity\Photo, ~]
+      tags:
+        - { name: sonata.admin, manager_type: orm, label: Photo }
+        
+    twig.extension.sortbyfield:
+        class: Snilius\Twig\SortByFieldExtension
+        tags:
+            - { name: twig.extension }

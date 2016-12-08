@@ -4,10 +4,7 @@
 
 {% block banniere %}
 	<div class="item active">
-		{% image filter='jpegoptim'
-			'bundles/cuipages/images/bandeau_pages.jpg' output='/images/bandeau_pages.jpg' %}
-		    <img src="{{ asset_url }}" alt="banniere" />
-		{% endimage %}
+		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
 	</div>
 {% endblock %}
 
@@ -21,17 +18,13 @@
 
 		</div>
 
-		<div id="contenu-page">{{ page.contenu }}</div>
+		<div id="contenu-page">{{ page.contenu|raw }}</div>
 	</div>
 {% endblock %}
 
 {% block stylesheets %}
 
-	{% stylesheets filter='cssrewrite, ?scssphp'
-	'bundles/cuicore/css/main.css'
-	'bundles/cuipages/css/view.css'
-	 %}
-	  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-	{% endstylesheets %}
+	{{ parent() }}
+	  <link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
 
 {% endblock %}

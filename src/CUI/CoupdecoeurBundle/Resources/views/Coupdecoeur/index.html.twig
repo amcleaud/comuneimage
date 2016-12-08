@@ -1,0 +1,101 @@
+{% extends "CUICoupdecoeurBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Coups de coeur{% endblock %}
+
+{% block banniere %}
+	<div class="item active">
+		<img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div id="header-page">
+
+			<h1>Coups de coeur</h1>
+
+		</div>
+
+		<div id="contenu-page">
+
+			<div class="jumbotron">
+				<h1>{{ news1.titre }}</h1>
+				{% for cadeau in news1.cadeaux|sortbyfield('ordre') %}
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">{{ cadeau.nom }}</h3>
+					  </div>
+					  <div class="panel-body">
+					  	<div id="carousel-{{ cadeau.id }}" class="carousel slide photoCadeauSlide" data-ride="carousel">
+						  <!-- Indicators -->
+						  {% if cadeau.photos|length> 1 %}
+							  <ol class="carousel-indicators">
+							  	{% for key, photo in cadeau.photos %}
+							  		<li data-target="#carousel-{{ cadeau.id }}" data-slide-to="{{ key }}" {%if key == 0 %}class="active"{%endif %} ></li>
+							    {% endfor %}
+							  </ol>
+							 {% endif %}
+
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" role="listbox">
+						  	{% for photo in cadeau.photos[0:1] %}
+							  	<div class="item active">
+							      {% media photo.image, 'small' %}
+							    </div>
+					  		{% endfor %}
+						  	{% for photo in cadeau.photos[1:] %}
+							  	<div class="item">
+							      {% media photo.image, 'small' %}
+							    </div>
+					  		{% endfor %}
+						  </div>
+
+					  	{% if cadeau.photos|length > 1 %}
+							  <!-- Controls -->
+							  <a class="left carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="next">
+							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
+						{% endif %}
+						</div>
+
+					  	<p>{{ cadeau.description }}</p>
+					  </div>
+					</div>
+				{% endfor %}
+				<p><a class="btn btn-primary btn-lg" href="{{ news1.lienFacebook }}" role="button">Pour voir les autres go FB</a></p>
+			</div>
+
+			<nav aria-label="Page navigation">
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    	{% for news in newsletters %}
+				    	<li><a href="{{ path('cui_coupdecoeur_view', {'id': news.id, 'lien': news.lien}) }}">{{ news.datePublication|date("m/Y") }} - {{news.titre}}</a></li>
+					{% endfor %}
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+
+	<link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
+
+{% endblock %}

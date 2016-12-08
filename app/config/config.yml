@@ -3,15 +3,20 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@CUIPagesBundle/Resources/config/services.yml" }
+    - { resource: "@CUIUserBundle/Resources/config/services.yml" }
+    - { resource: "@CUICoupdecoeurBundle/Resources/config/services.yml" }
+    - { resource: sonata_classification.yml }
+    - { resource: sonata_media.yml }
+    - { resource: ivory/ivory_ckeditor.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -37,6 +42,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'SonataFormatterBundle:Form:formatter.html.twig'
     globals:
         nomsite: %app_nomsite%
         contact_ville: %app_contact_ville%
@@ -45,6 +52,41 @@ twig:
         contact_tel: %app_contact_tel%
         contact_mail: %app_contact_mail%
         facebook: %app_facebook%
+
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+    ckeditor:
+        templates:
+            browser: 'SonataFormatterBundle:Ckeditor:browser.html.twig'
+            upload: 'SonataFormatterBundle:Ckeditor:upload.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -56,6 +98,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json:     Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -84,5 +128,45 @@ assetic:
         jsqueeze:   ~
         scssphp:
           formatter: 'Leafo\ScssPhp\Formatter\Compressed'
-        jpegoptim:
-            bin: web/vendor/jpegoptim-1.4.3
+    #    jpegoptim:
+    #        bin: web/vendor/jpegoptim-1.4.3
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: CUI\UserBundle\Entity\User
+
+# app/config/config.yml
+sonata_admin:
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::layout.html.twig
+    dashboard:
+        blocks:
+            # display two dashboard blocks
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [coups_de_coeur]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [pages_du_site]
+
+        groups:
+            coups_de_coeur:
+                items:
+                    - admin.newsletter
+            pages_du_site:
+                items:
+                    - admin.page
+                    - admin.rubrique
+

@@ -1,0 +1,39 @@
+{# src/CUI/UserBundle/Resources/views/layout.html.twig #}
+
+{# On étend notre layout #}
+{% extends "CUICoreBundle::layout.html.twig" %}
+
+{% block banniere %}
+  <div class="item active">
+      <img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
+  </div>
+{% endblock %}
+
+{# Dans notre layout, il faut définir le block body #}
+{% block content %}
+  <div class="container">
+    <div id="contenu-page">
+      {# On affiche les messages flash que définissent les contrôleurs du bundle #}
+      {% for key, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+          <div class="alert alert-{{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+          </div>
+        {% endfor %}
+      {% endfor %}
+
+      {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
+      {% block fos_user_content %}
+      {% endblock fos_user_content %}
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+  {{ parent() }}
+
+  <link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
+
+{% endblock %}

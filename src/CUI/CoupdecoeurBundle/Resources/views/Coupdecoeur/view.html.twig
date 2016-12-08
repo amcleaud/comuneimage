@@ -1,0 +1,51 @@
+{% extends "CUICoupdecoeurBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Coups de coeur{% endblock %}
+
+{% block banniere %}
+	<div class="item active">
+		<img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div id="header-page">
+
+			<h1>Coups de coeur</h1>
+
+		</div>
+
+		<div id="contenu-page">
+
+			<div class="jumbotron">
+				<h1>{{ news.titre }}</h1>
+				{% for cadeau in news.cadeaux %}
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">{{ cadeau.nom }}</h3>
+					  </div>
+					  <div class="panel-body">
+					  	{% for photo in cadeau.photos %}
+					  		<p>{% media photo.image, 'small' %}</p>
+					  	{% endfor %}
+					  	<p>{{ cadeau.description }}</p>
+					  </div>
+					</div>
+				{% endfor %}
+				<p><a class="btn btn-primary btn-lg" href="{{ news.lienFacebook }}" role="button">Pour voir les autres go FB</a></p>
+			</div>
+
+			<p><a class="btn btn-primary btn-lg" href="{{ path('cui_coupdecoeur_index') }}" role="button">Retour</a></p>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+
+	<link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
+
+{% endblock %}

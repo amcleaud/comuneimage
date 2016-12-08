@@ -3,26 +3,7 @@
 {% block banniere %}
 	<div class="item active">
 		<a href="{{ path('cui_core_home') }}">
-			{% image  filter='jpegoptim'
-				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut.jpg' %}
-			    <img src="{{ asset_url }}" alt="banniere" />
-			{% endimage %}
-		</a>
-	</div>
-	<div class="item">
-		<a href="http://stimactiv.com" target="_BLANK">
-			{% image  filter='jpegoptim'
-				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut_2.jpg' %}
-		    <img src="{{ asset_url }}" alt="banniere" />
-		{% endimage %}
-		</a>
-	</div>
-	<div class="item">
-		<a href="#">
-			{% image  filter='jpegoptim'
-				'bundles/cuicore/images/bandeau_haut.jpg' output='/images/bandeau_haut_3.jpg' %}
-			    <img src="{{ asset_url }}" alt="banniere" />
-			{% endimage %}
+			<img src="{{ asset('bundles/cuicore/images/bandeau_haut.jpg') }}" alt="banniere" />
 		</a>
 	</div>
 {% endblock %}
@@ -43,40 +24,30 @@
 {% endblock %}
 
 {% block btnCatalogue %}
-	{% image 'bundles/cuicore/images/btn_catalogue.png' %}
-	    <img src="{{ asset_url }}" alt="Consultez notre catalogue en ligne" />
-	{% endimage %}
+	<img src="{{ asset('bundles/cuicore/images/btn_catalogue.png') }}" alt="Consultez notre catalogue en ligne" />
 {% endblock %}
 
 {% block content %}
 
 	<div id="pointsforts">
 
-		{% image 'bundles/cuicore/images/picto_conseil.png' %}
-		    <img src="{{ asset_url }}" alt="conseil" />
-		{% endimage %}
+	    <img src="{{ asset('bundles/cuicore/images/picto_conseil.png') }}" alt="conseil" />
 
-		{% image 'bundles/cuicore/images/picto_creativite.png' %}
-		    <img src="{{ asset_url }}" alt="créativité" />
-		{% endimage %}
+	    <img src="{{ asset('bundles/cuicore/images/picto_creativite.png') }}" alt="créativité" />
 
-		{% image 'bundles/cuicore/images/picto_sourcing.png' %}
-		    <img src="{{ asset_url }}" alt="sourcing" />
-		{% endimage %}
+	    <img src="{{ asset('bundles/cuicore/images/picto_sourcing.png') }}" alt="sourcing" />
 
-		{% image 'bundles/cuicore/images/picto_production.png' %}
-		    <img src="{{ asset_url }}" alt="production" />
-		{% endimage %}
+	    <img src="{{ asset('bundles/cuicore/images/picto_production.png') }}" alt="production" />
 
-		{% image 'bundles/cuicore/images/picto_logistique.png' %}
-		    <img src="{{ asset_url }}" alt="logistique" />
-		{% endimage %}
+	    <img src="{{ asset('bundles/cuicore/images/picto_logistique.png') }}" alt="logistique" />
 
 	</div>
 
 	<div id="coupdecoeur">
-		<h2>Découvrez</h2>
-		<h1>nos coups de coeur</h1>
+		<a href="{{ path('cui_coupdecoeur_index') }}">
+			<h2>Découvrez</h2>
+			<h1>nos coups de coeur</h1>
+		</a>
 	</div>
 
 {% endblock %}
@@ -84,12 +55,7 @@
 
 
 {% block stylesheets %}
-
-	{% stylesheets filter='cssrewrite, ?scssphp'
-	'bundles/cuicore/css/main.css'
-	'bundles/cuicore/css/home.css'
-	 %}
-	  <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-	{% endstylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/cuicore/css/home.css') }}" type="text/css" />
 
 {% endblock %}

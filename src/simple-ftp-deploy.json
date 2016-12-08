@@ -1,0 +1,7 @@
+{
+    "host": "cnudde.nexen.net",
+    "port": 21,
+    "username": "cnuddeftp",
+    "password": "PydAuf8quocAs",
+    "rootDirectory": "/comuneimage/src/"
+}
