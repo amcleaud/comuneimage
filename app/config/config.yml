@@ -52,6 +52,7 @@ twig:
         contact_tel: %app_contact_tel%
         contact_mail: %app_contact_mail%
         facebook: %app_facebook%
+        catalogue: %app_catalogue%
 
 sonata_formatter:
     formatters:
