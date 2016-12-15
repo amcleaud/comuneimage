@@ -7,6 +7,10 @@
   margin-top: -168px;
 }
 
+#descBanniere {
+  padding-bottom: 30px;
+}
+
 #carousel, #carousel-principal {
   height: 679px;
 }

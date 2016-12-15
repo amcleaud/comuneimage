@@ -55,6 +55,8 @@ nav {
 hr {
   border-top-color: #333;
   max-width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .container-fluid {
@@ -64,23 +66,16 @@ hr {
 
 .navbar-principal {
   margin-bottom: 0;
+  border: 0;
+}
+
+.navbar-principal .dropdown-menu {
+  padding: 0;
 }
 
 .navbar-principal, .navbar-principal .open a, .navbar-principal .dropdown-menu {
   background-color: #3E3B44;
   border-radius: 0;
-}
-
-@media (min-width: 768px) {
-    .navbar-principal .container-fluid div {
-        display: inline-block !important;
-        float: none;
-        vertical-align: top;
-    }
-
-    .navbar-principal .container-fluid {
-        text-align: center;
-    }
 }
 
 .navbar-principal li a {
@@ -89,8 +84,23 @@ hr {
   text-transform: uppercase;
   font-size: 20px;
   font-weight: normal;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 31px;
+  padding-bottom: 31px;
+  background-image:url('../images/fondMenuLi.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.navbar-principal li:last-of-type a {
+  background-image: none;
+}
+
+.navbar-principal li ul li a {
+  background-image:none;
+}
+
+.navbar-principal .dropdown-menu {
+  border-width: 0;
 }
 
 .navbar-principal li a:focus,
@@ -119,6 +129,10 @@ hr {
   background-color: white;
 }
 
+.navbar-brand img {
+  margin-top: -50%;
+}
+
 #header {
   z-index: 80;
   position: relative;
@@ -137,31 +151,6 @@ hr {
   background: url('../images/petit_bandeau_pages.jpg') repeat center top #B71E20;
   background-size: 100%;
 }
-
-@media (max-width:767px) {
-  #header h1 {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-.navbar-brand img {
-  margin-top: -50%;
-}
-
-@media (max-width: 991px) {
-  .navbar-brand {
-    padding-right:0;
-  }
-  .navbar-brand img {
-    width:120px;
-    margin-top: -50px;
-  }
-  .navbar-principal li a {
-    font-size:  16px;
-  }
-}
-
 
 
 #contact {
@@ -209,6 +198,11 @@ hr {
   font-size: 20px;
 }
 
+footer .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 #final_footer {
   background-color: #3E3B44;
   color: #F1CED0;
@@ -240,27 +234,8 @@ hr {
   color: #E86F1E;
 }
 
-footer .row {
-  margin-right: 0;
-  margin-left: 0;
-}
-
 #final_infos .nav li a {
   line-height: 1.42857143em;
-}
-
-@media (max-width:992px) {
-   #final_footer {
-      text-align: center;
-   }
-   .footer_section {
-      margin-top: 25px;
-      margin-bottom: 25px;
-   }
-   #final_footer .nav li a {
-    line-height: 1.45em;
-    font-size: 20px;
-  }
 }
 
 #carousel, #carousel-principal {
@@ -273,7 +248,6 @@ footer .row {
 }
 
 #carousel img {
-  min-width:100%;
   position: absolute;
   left: -9999px;
   right: -9999px;
@@ -282,115 +256,10 @@ footer .row {
   max-height: 400px;
 }
 
-@media (max-width: 767px) {
-  #carousel-principal {
-    height: 300px;
-    width: 100%;
-  }
-  #carousel img {
-    height: 300px;
-  }
-}
-
-#banniere {
-  position: relative;
-  padding: 0;
-  background-color: white;
-}
-
-#banniere .row {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-#banniere h1 {
-  font-family: Arvo;
-  font-size: 30px;
-  font-weight: bold;
-  border-bottom: 5px solid #333;
-  padding-bottom: 5px;
-  color: #333;
-}
-
-@media (max-width: 1370px) {
-  #banniere h1 {
-   font-size: 24px;
-  }
-}
-
-@media (max-width: 991px) {
-  #banniere h1 {
-    display: inline-block;
-    font-size: 36px;
-  }
-}
-
-#banniere p {
-  font-size: 16px;
-  color: #949197;
-  margin-top: 20px;
-}
-
-#descBanniere {
-  padding-bottom: 30px;
-}
-
-#versCatalogue {
-  position: relative;
-  margin-top: -120px;
-  text-align: center;
-  padding-left: 600px;
-  margin-bottom: -25px;
-}
-
-@media (max-width:1280px) {
-  #versCatalogue {
-    padding-left:450px;
-  }
-}
-
-@media (max-width:992px) {
-  #versCatalogue {
-    padding-left:0;
-  }
-}
-
-@media (max-width:767px) {
-  #versCatalogue img {
-    width: 354px;
-    max-width: 100%;
-  }
-  #versCatalogue {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 5px;
-  }
-}
-
-#miniMenu {
-  position: fixed;
-  right:0;
-  top:30%;
-  background-color: #E8701E;
-  color: white;
-  border-radius: 8px 0 0 8px;
-  border: solid 1px white;
-  border-right-width: 0;
-}
-
-#miniMenu li a {
-  background-color: transparent;
-  color: white;
-  border-radius: 0;
-}
-
-#miniMenu li a img {
-  width: 25px;
-}
-
-#miniMenu li a:hover, #miniMenu li a:focus {
-  background-color: transparent;
-  color: white;
+#carousel {
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, top right;
+  background-size: 50% 100%, 50% 100%;
 }
 
 .photoCadeauSlide, .photoCadeauSlide .carousel-inner  {
@@ -427,4 +296,154 @@ footer .row {
 
 .panel {
   max-width: 600px;
+}
+
+#banniere {
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+}
+
+#banniere .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#banniere h1 {
+  font-family: Arvo;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 5px solid #333;
+  padding-bottom: 5px;
+  color: #333;
+}
+
+#banniere p {
+  font-size: 16px;
+  color: #949197;
+  margin-top: 20px;
+}
+
+#versCatalogue {
+  position: relative;
+  margin-top: -120px;
+  text-align: center;
+  padding-left: 600px;
+  margin-bottom: -25px;
+}
+
+#miniMenu {
+  position: fixed;
+  right:0;
+  top:30%;
+  background-color: #2FBCCC;
+  color: white;
+  border-radius: 8px 0 0 8px;
+  border: solid 1px white;
+  border-right-width: 0;
+}
+
+#miniMenu li a {
+  background-color: transparent;
+  color: white;
+  border-radius: 0;
+}
+
+#miniMenu li a img {
+  width: 25px;
+}
+
+#miniMenu li a:hover, #miniMenu li a:focus {
+  background-color: transparent;
+  color: white;
+}
+
+@media (min-width: 768px) {
+    .navbar-principal .container-fluid div {
+        display: inline-block !important;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar-principal .container-fluid {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1370px) {
+  #banniere h1 {
+   font-size: 24px;
+  }
+}
+
+@media (max-width:1280px) {
+  #versCatalogue {
+    padding-left:450px;
+  }
+}
+
+@media (max-width:992px) {
+   #final_footer {
+      text-align: center;
+   }
+   .footer_section {
+      margin-top: 25px;
+      margin-bottom: 25px;
+   }
+   #final_footer .nav li a {
+    line-height: 1.45em;
+    font-size: 20px;
+  }
+
+  #versCatalogue {
+    padding-left:0;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    padding-right:0;
+  }
+  .navbar-brand img {
+    width:120px;
+    margin-top: -50px;
+  }
+  .navbar-principal li a {
+    font-size:  16px;
+  }
+
+  #banniere h1 {
+    display: inline-block;
+    font-size: 36px;
+  }
+}
+
+@media (max-width:767px) {
+  #header h1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .navbar-header {
+    margin-left:0;
+    margin-right:0;
+  }
+
+  #carousel-principal {
+    height: 300px;
+    width: 100%;
+  }
+  #carousel img {
+    height: 300px;
+  }
+
+  #versCatalogue img {
+    width: 354px;
+    max-width: 100%;
+  }
+  #versCatalogue {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+  }
 }
