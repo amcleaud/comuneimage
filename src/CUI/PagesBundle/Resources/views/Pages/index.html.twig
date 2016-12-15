@@ -4,7 +4,7 @@
 
 {% block banniere %}
 	<div class="item active">
-		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
+		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages_'~ page.rubrique.id ~'.jpg' ) }}" alt="banniere" />
 	</div>
 {% endblock %}
 
@@ -18,7 +18,10 @@
 
 		</div>
 
-		<div id="contenu-page">{{ page.contenu|raw }}</div>
+		<div id="contenu-page">
+			{{ page.contenu|raw }}
+			<div class="clearfix"></div>
+		</div>
 	</div>
 {% endblock %}
 
@@ -27,4 +30,9 @@
 	{{ parent() }}
 	  <link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
 
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('bundles/cuipages/js/view.js') }}"></script>
 {% endblock %}
