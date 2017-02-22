@@ -89,5 +89,9 @@ class Rubrique
 	    $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
 	    return strtolower(trim($string, '-'));
 	}
+
+    function __toString() {
+        return $this->nom;
+    }
 }
 

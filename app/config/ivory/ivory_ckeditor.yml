@@ -20,3 +20,14 @@ ivory_ck_editor:
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
             allowedContent: true
+            enterMode: CKEDITOR.ENTER_BR
+            shiftEnterMode: CKEDITOR.ENTER_P
+            height: 600
+            width: 980
+        desckdo:
+            toolbar:
+            - [Bold, Italic, Underline]
+            - [Format, Maximize, Source]
+            allowedContent: true
+            enterMode: CKEDITOR.ENTER_BR
+            shiftEnterMode: CKEDITOR.ENTER_Per'

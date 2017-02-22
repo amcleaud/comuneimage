@@ -32,3 +32,9 @@ $(function() {
         new Image().src = $(this).data('alt-src');
     }).hover(sourceSwapIn, sourceSwapOut);
 });
+
+$(document).ready(function() {
+    if($(window).width()<1000) {
+        $('map').remove();
+    }
+});

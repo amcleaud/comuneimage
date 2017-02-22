@@ -7,9 +7,33 @@ function fondBan() {
 	carousel.css('background-image', 'url('+newSrcImage1+'), url('+newSrcImage2+')');
 }
 
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#3e3b44",
+      "text": "#ffffff"
+    },
+    "button": {
+      "background": "transparent",
+      "text": "#ffffff",
+      "border": "#e9701f"
+    }
+  },
+  "position": "top",
+  "static": true,
+  "content": {
+    "message": "En continuant votre navigation, vous acceptez l'utilisation de cookies pour vous proposer des contenus et offres adaptés.",
+    "dismiss": "J'ai compris !",
+    "link": "En savoir plus",
+    "href": "http://comuneimage.eu/p/11-mentions-legales.html"
+  }
+})});
+
 $(document).ready(function() {
 	  fondBan();
       $('a[href^="#contact"]').click(function() {
+          $('#newsModal').hide();
           var target = $(this.hash);
           if (target.length == 0) target = $('a[name="' + this.hash.substr(1) + '"]');
           if (target.length == 0) target = $('html');
@@ -18,6 +42,6 @@ $(document).ready(function() {
           return false;
       });
       $('#carousel-principal').on('slide.bs.carousel', function () {
-	  	fondBan();
-	})
+	  	  fondBan();
+	    });
   });

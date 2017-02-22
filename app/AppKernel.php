@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new CUI\ContactBundle\CUIContactBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

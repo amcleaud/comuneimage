@@ -48,6 +48,12 @@ class Cadeau
      */
     private $ordre;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="CUI\CoupdecoeurBundle\Entity\Newsletter", inversedBy="cadeaux")
+    * @ORM\JoinColumn(name="newsletter_id", referencedColumnName="id")
+    */
+    private $newsletter;
+
     public function __construct()
     {
       $this->photos = new ArrayCollection();
@@ -78,6 +84,18 @@ class Cadeau
     public function getPhotos()
     {
     return $this->photos;
+    }
+
+    public function setNewsletter(Newsletter $newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    public function getNewsletter()
+    {
+        return $this->newsletter;
     }
 
 

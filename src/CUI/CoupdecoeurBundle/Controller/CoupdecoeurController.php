@@ -19,18 +19,31 @@ class CoupdecoeurController extends Controller
 
     	$news1 = $listeNewsletters->findOneBy(
 												array('estPublie'=>1),
-												array('datePublication'=>'DESC')
+												array('dateEmailing'=>'DESC')
 											);
+
+        $news2 = $listeNewsletters->findBy(
+                                                array('estPublie'=>1),
+                                                array('dateEmailing'=>'DESC'),
+                                                1,
+                                                1
+                                            );
+        $news3 = $listeNewsletters->findBy(
+                                                array('estPublie'=>1),
+                                                array('dateEmailing'=>'DESC'),
+                                                1,
+                                                2
+                                            );
 
 
 		$newsletters = $listeNewsletters->findBy(
 													array('estPublie'=>1),
-													array('datePublication'=>'DESC'),
+													array('dateEmailing'=>'DESC'),
 													50000,
-													1
+													3
 												);
 
-		return $this->render('CUICoupdecoeurBundle:Coupdecoeur:index.html.twig', array('news1'=>$news1,'newsletters'=>$newsletters));
+		return $this->render('CUICoupdecoeurBundle:Coupdecoeur:index.html.twig', array('news1'=>$news1,'news2'=>$news2[0],'news3'=>$news3[0], 'newsletters'=>$newsletters));
 
     }
 
@@ -42,7 +55,15 @@ class CoupdecoeurController extends Controller
 
     	$news = $listeNewsletters->find($newsletter);
 
-		return $this->render('CUICoupdecoeurBundle:Coupdecoeur:view.html.twig', array('news'=>$news));
+		$response = $this->render('CUICoupdecoeurBundle:Coupdecoeur:view.html.twig', array('news'=>$news));
+
+        // cache for 3600 seconds
+        $response->setSharedMaxAge(1);
+
+        // (optional) set a custom Cache-Control directive
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+
+        return $response;
 
     }
 

@@ -1,3 +1,7 @@
+cui_contact:
+    resource: "@CUIContactBundle/Resources/config/routing.yml"
+    prefix:   /contactez-nous
+
 cui_coupdecoeur:
     resource: "@CUICoupdecoeurBundle/Resources/config/routing.yml"
     prefix:   /coupdecoeur

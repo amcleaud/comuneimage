@@ -29,6 +29,13 @@ class Page
     private $nom;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=true)
@@ -51,7 +58,7 @@ class Page
 
     /**
      * @ORM\ManyToOne(targetEntity="CUI\PagesBundle\Entity\Rubrique")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $rubrique;
 
@@ -76,6 +83,14 @@ class Page
     public function setNom($nom)
     {
         $this->nom = $nom;
+        $string = str_replace(array('[\', \']'), '', $nom);
+        $string = preg_replace('/\[.*\]/U', '', $string);
+        $string = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '-', $string);
+        $string = htmlentities($string, ENT_COMPAT, 'utf-8');
+        $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
+        $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
+        $string = strtolower(trim($string, '-'));
+        $this->lien = $string.".html";
 
         return $this;
     }
@@ -124,6 +139,30 @@ class Page
     public function setContenu($contenu)
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set position
+     *
+     * @param int $position
+     *
+     * @return Page
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
 
         return $this;
     }
@@ -191,5 +230,9 @@ class Page
 	    $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
 	    return strtolower(trim($string, '-'));
 	}
+
+    function __toString() {
+        return $this->titre;
+    }
 }
 

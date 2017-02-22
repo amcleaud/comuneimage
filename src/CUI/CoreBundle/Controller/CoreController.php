@@ -23,7 +23,7 @@ class CoreController extends Controller
 
     foreach($menu as $rub) {
 
-      $rub->pages =  $listePages->findBy(array("rubrique"=>$rub));
+      $rub->pages =  $listePages->findBy(array("rubrique"=>$rub), array('position'=>'ASC'));
 
     }
 
@@ -45,7 +45,7 @@ class CoreController extends Controller
 
     foreach($menu as $rub) {
 
-      $rub->pages =  $listePages->findBy(array("rubrique"=>$rub));
+      $rub->pages =  $listePages->findBy(array("rubrique"=>$rub), array('position'=>'ASC'));
 
     }
 

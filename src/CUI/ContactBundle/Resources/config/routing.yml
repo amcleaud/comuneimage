@@ -1,0 +1,5 @@
+cui_contact_index:
+    path: /
+    defaults: { _controller: CUIContactBundle:Contact:index }
+    requirements:
+        _method:  GET|POST

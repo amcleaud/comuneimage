@@ -1,51 +1,64 @@
-{% extends "CUICoupdecoeurBundle::layout.html.twig" %}
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+  	<div class="jumbotron">
+		<h3>{{ news.titre }}</h3>
+		{{ news.description|raw }}
+		{% for cadeau in news.cadeaux|sortbyfield('ordre') %}
+			<div class="panel panel-default">
+			  <div class="panel-body">
+			  	<div class="col-sm-12 col-md-6">
+					<h4 class="panel-title">{{ cadeau.nom }}</h4>
+				  	{{ cadeau.description|raw }}
+				</div>
+			  	<div class="col-sm-12 col-md-6">
+				  	<div id="carousel-{{ cadeau.id }}" class="carousel slide photoCadeauSlide">
+					  <!-- Indicators -->
+					  {% if cadeau.photos|length> 1 %}
+						  <ol class="carousel-indicators">
+						  	{% for key, photo in cadeau.photos %}
+						  		<li data-target="#carousel-{{ cadeau.id }}" data-slide-to="{{ key }}" {%if key == 0 %}class="active"{%endif %} ></li>
+						    {% endfor %}
+						  </ol>
+						 {% endif %}
 
-{% block title %}{{ parent() }} - Coups de coeur{% endblock %}
-
-{% block banniere %}
-	<div class="item active">
-		<img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
-	</div>
-{% endblock %}
-
-{% block content %}
-	<div class="container">
-		<div id="header-page">
-
-			<h1>Coups de coeur</h1>
-
-		</div>
-
-		<div id="contenu-page">
-
-			<div class="jumbotron">
-				<h1>{{ news.titre }}</h1>
-				{% for cadeau in news.cadeaux %}
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-					    <h3 class="panel-title">{{ cadeau.nom }}</h3>
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner" role="listbox">
+					  	{% for photo in cadeau.photos[0:1] %}
+						  	<div class="item active">
+						      {% media photo.image, 'reference' %}
+						    </div>
+				  		{% endfor %}
+					  	{% for photo in cadeau.photos[1:] %}
+						  	<div class="item">
+						      {% media photo.image, 'reference' %}
+						    </div>
+				  		{% endfor %}
+				  		<div class="pauseCarousel"></div>
 					  </div>
-					  <div class="panel-body">
-					  	{% for photo in cadeau.photos %}
-					  		<p>{% media photo.image, 'small' %}</p>
-					  	{% endfor %}
-					  	<p>{{ cadeau.description }}</p>
-					  </div>
+
+				  	{% if cadeau.photos|length > 1 %}
+						  <!-- Controls -->
+						  <a class="left carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="prev">
+						    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						    <span class="sr-only">Précédent</span>
+						  </a>
+						  <a class="right carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="next">
+						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						    <span class="sr-only">Suivant</span>
+						  </a>
+					{% endif %}
 					</div>
-				{% endfor %}
-				<p><a class="btn btn-primary btn-lg" href="{{ news.lienFacebook }}" role="button">Pour voir les autres go FB</a></p>
+				</div>
+				<div class="clearfix"></div>
+			  </div>
 			</div>
-
-			<p><a class="btn btn-primary btn-lg" href="{{ path('cui_coupdecoeur_index') }}" role="button">Retour</a></p>
-
+		{% endfor %}
+		{# <p><a class="btn btn-primary btn-lg" href="{{ news.lienFacebook }}" role="button">Pour voir les autres go FB</a></p> #}
+		<div class="container-fluid text-center">
+			<p class="msgOrange">Ces produits vous intéressent ?<br/>Vous souhaitez un devis ?</p>
+			<a class="btn btn-warning" href="mailto:{{ contact_mail }}" role="button">Contactez-nous</a>
 		</div>
 	</div>
-{% endblock %}
-
-{% block stylesheets %}
-
-	{{ parent() }}
-
-	<link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
-
-{% endblock %}
+</div>

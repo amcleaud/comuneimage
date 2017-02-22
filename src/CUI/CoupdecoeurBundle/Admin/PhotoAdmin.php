@@ -14,7 +14,7 @@ class PhotoAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('image', 'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'default')));
+        $formMapper->add('image', 'sonata_type_model_list', array('label'=>'Photo ou Vidéo'), array('link_parameters' => array('context' => 'default')));
     }
 
 }

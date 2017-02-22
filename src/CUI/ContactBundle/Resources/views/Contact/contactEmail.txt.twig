@@ -1,0 +1,13 @@
+Message de {{ message.nom }} ({{ message.fonction }} de {{ message.entreprise }}) envoyé à {{ "now" | date("d/m/Y H:i") }} depuis le formulaire de contact du site Com' une Image.
+
+{{ message.contenu }}
+
+
+nom et prénom :{{ message.nom }}
+Entreprise : {{ message.entreprise }}
+Fonction : {{ message.fonction }}
+email : {{ message.email }}
+téléphone : {{ message.telephone }}
+adresse :
+{{ message.adresse }}
+{{ message.codePostal }} {{ message.ville }}

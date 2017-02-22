@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Newsletter
 {
   /**
-   * @ORM\ManyToMany(targetEntity="CUI\CoupdecoeurBundle\Entity\Cadeau", cascade={"persist"})
+   * @ORM\OneToMany(targetEntity="CUI\CoupdecoeurBundle\Entity\Cadeau", mappedBy="newsletter", cascade={"persist"})
    */
   private $cadeaux;
   /**
@@ -28,6 +28,16 @@ class Newsletter
    * @ORM\Column(name="titre", type="string", length=255)
    */
   private $titre;
+
+   /**
+   * @ORM\Column(name="date_emailing", type="date", nullable=true)
+   */
+  private $dateEmailing;
+
+  /**
+   * @ORM\Column(name="description", type="text", nullable=true)
+   */
+  private $description;
 
   /**
    * @ORM\Column(name="lien_facebook", type="string", length=255, nullable=true)
@@ -67,8 +77,18 @@ class Newsletter
     $this->dateCreation = new \Datetime();
   }
 
+  public function setCadeaux($cadeaux) {
+    if(count($cadeaux)>0) {
+      foreach($cadeaux as $cadeau) {
+        $this->addCadeaux($cadeau);
+      }
+    }
+    return $this;
+  }
+
   public function addCadeaux(Cadeau $cadeau)
   {
+  $cadeau->setNewsletter($this);
   $this->cadeaux[] = $cadeau;
   }
 
@@ -124,6 +144,18 @@ class Newsletter
     return $this->dateCreation;
   }
 
+  public function setDateEmailing(\Datetime $dateEmailing)
+  {
+    $this->dateEmailing = $dateEmailing;
+
+    return $this;
+  }
+
+  public function getDateEmailing()
+  {
+    return $this->dateEmailing;
+  }
+
   public function setDateMAJ(\Datetime $dateMAJ)
   {
     $this->dateMAJ = $dateMAJ;
@@ -161,6 +193,30 @@ class Newsletter
   {
     return $this->estPublie;
   }
+
+  /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Cadeau
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
   /**
    * Set lien
@@ -202,4 +258,8 @@ class Newsletter
     $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
     return strtolower(trim($string, '-'));
 }
+
+  function __toString() {
+      return $this->titre;
+  }
 }

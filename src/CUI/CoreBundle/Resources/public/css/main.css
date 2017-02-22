@@ -59,14 +59,26 @@ hr {
   margin-bottom: 10px;
 }
 
+.btn {
+  border-radius: unset;
+  text-transform: uppercase;
+  font-family: Arvo;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .navbar-principal {
   margin-bottom: 0;
   border: 0;
+  min-height: 68px;
 }
 
 .navbar-principal .dropdown-menu {
@@ -82,13 +94,14 @@ hr {
   color: white;
   font-family: Arvo;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
-  padding-top: 31px;
-  padding-bottom: 31px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   background-image:url('../images/fondMenuLi.png');
   background-repeat: no-repeat;
   background-position: right center;
+  letter-spacing: 0.05em;
 }
 
 .navbar-principal li:last-of-type a {
@@ -104,11 +117,15 @@ hr {
 }
 
 .navbar-principal li a:focus,
-.navbar-principal li a:hover,
-.navbar-principal .open a:hover,
 .navbar-principal .open a:focus {
-  background-color: #2E2B34;
+  background-color: #3E3B44;
   color: white;
+}
+
+.navbar-principal li a:hover,
+.navbar-principal .open a:hover {
+  background-color: #2E2B34;
+  color: #E9701F;
 }
 
 .navbar-principal li .nofocus:focus, .navbar-principal .open .nofocus:focus {
@@ -116,13 +133,15 @@ hr {
 }
 
 .navbar-principal .navbar-brand {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  height:80px;
+  padding-top: 34px;
+  padding-bottom: 20px;
+  height:68px;
+  margin-right:-35px;
 }
 
 .navbar-principal .navbar-toggle {
-  margin-top: 23px;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 .navbar-principal .icon-bar {
@@ -131,25 +150,27 @@ hr {
 
 .navbar-brand img {
   margin-top: -50%;
+  width: 175px;
 }
 
 #header {
   z-index: 80;
   position: relative;
+  background: white;
+  padding-bottom: 30px;
+  padding-top: 20px;
 }
 
 #header h1 {
   font-family: ReplicaFtt;
-  font-size: 32px;
+  font-size: 26px;
   color: #E9701F;
-  padding-bottom: 30px;
-  padding-top: 20px;
   margin-bottom: 0;
   margin-top: 0;
   text-align: center;
-  padding-left: 80px;
-  background: url('../images/petit_bandeau_pages.jpg') repeat center top #B71E20;
+  padding-left: 150px;
   background-size: 100%;
+  letter-spacing: 0.02em;
 }
 
 
@@ -194,6 +215,10 @@ hr {
   font-size: 15px;
 }
 
+#contact_follow {
+  margin-top: 40px;
+}
+
 #contact_follow h1 {
   font-size: 20px;
 }
@@ -234,6 +259,10 @@ footer .row {
   color: #E86F1E;
 }
 
+#final_infos {
+  text-align: right;
+}
+
 #final_infos .nav li a {
   line-height: 1.42857143em;
 }
@@ -262,42 +291,6 @@ footer .row {
   background-size: 50% 100%, 50% 100%;
 }
 
-.photoCadeauSlide, .photoCadeauSlide .carousel-inner  {
-  width: 110px;
-  height: 110px;
-  margin-bottom: 20px;
-}
-
-.photoCadeauSlide .carousel-control,
-.photoCadeauSlide .carousel-control:active,
-.photoCadeauSlide .carousel-control:visited,
-.photoCadeauSlide .carousel-control:focus,
-.photoCadeauSlide .carousel-control:hover {
-  color: #333333;
-}
-
-.photoCadeauSlide .carousel-indicators {
-  bottom: -40px;
-}
-
-.photoCadeauSlide .carousel-indicators li, .photoCadeauSlide .carousel-indicators li:active {
-  border-color: #333333;
-}
-
-.photoCadeauSlide .carousel-indicators .active {
-  background-color: #333333;
-}
-
-.panel-body .carousel, .panel-body p {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 450px;
-}
-
-.panel {
-  max-width: 600px;
-}
-
 #banniere {
   position: relative;
   padding: 0;
@@ -311,7 +304,7 @@ footer .row {
 
 #banniere h1 {
   font-family: Arvo;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   border-bottom: 5px solid #333;
   padding-bottom: 5px;
@@ -326,37 +319,50 @@ footer .row {
 
 #versCatalogue {
   position: relative;
-  margin-top: -120px;
+  margin-top: -110px;
   text-align: center;
-  padding-left: 600px;
+  padding-left: 480px;
   margin-bottom: -25px;
+  z-index: 5;
+}
+
+#versCatalogue img {
+  height: 150px;
 }
 
 #miniMenu {
   position: fixed;
   right:0;
-  top:30%;
+  top:220px;
   background-color: #2FBCCC;
   color: white;
   border-radius: 8px 0 0 8px;
   border: solid 1px white;
   border-right-width: 0;
+  z-index: 500;
 }
 
 #miniMenu li a {
   background-color: transparent;
   color: white;
   border-radius: 0;
+  padding: 8px 6px;
 }
 
 #miniMenu li a img {
-  width: 25px;
+  width: 40px;
 }
 
 #miniMenu li a:hover, #miniMenu li a:focus {
   background-color: transparent;
   color: white;
 }
+
+.navbar-principal ul li ul li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+  }
 
 @media (min-width: 768px) {
     .navbar-principal .container-fluid div {
@@ -382,7 +388,13 @@ footer .row {
   }
 }
 
-@media (max-width:992px) {
+@media (max-width:1075px) and (min-width:941px) {
+  .navbar-principal li a {
+    font-size:16px;
+  }
+}
+
+@media (max-width:991px) {
    #final_footer {
       text-align: center;
    }
@@ -392,24 +404,36 @@ footer .row {
    }
    #final_footer .nav li a {
     line-height: 1.45em;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   #versCatalogue {
-    padding-left:0;
+    padding-left:240px;
   }
-}
 
-@media (max-width: 991px) {
+  #final_infos .nav li {
+    font-size: 16px;
+  }
+  #final_infos {
+    text-align: center;
+  }
+
   .navbar-brand {
     padding-right:0;
   }
   .navbar-brand img {
     width:120px;
-    margin-top: -50px;
   }
   .navbar-principal li a {
     font-size:  16px;
+  }
+
+  #menu-principal {
+    margin-left: 20px;
+  }
+
+  #header h1 {
+    padding-left: 0;
   }
 
   #banniere h1 {
@@ -418,32 +442,89 @@ footer .row {
   }
 }
 
+@media (max-width:940px) and (min-width: 768px) {
+  .navbar-principal li a {
+    font-size:14px;
+    padding:24px 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+  #menu-principal {
+    padding-right: 0;
+  }
+}
+
 @media (max-width:767px) {
+  #menu-principal {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .navbar-principal li a {
+    background-image: none;
+  }
+
   #header h1 {
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size: 18px;
   }
 
   .navbar-header {
-    margin-left:0;
-    margin-right:0;
+    margin-left:0 !important;
+    margin-right:0 !important;
   }
 
   #carousel-principal {
-    height: 300px;
+    height: 200px;
     width: 100%;
   }
   #carousel img {
-    height: 300px;
+    height: 200px;
   }
 
   #versCatalogue img {
     width: 354px;
+    height: auto;
     max-width: 100%;
   }
   #versCatalogue {
     margin-top: 0;
     margin-bottom: 0;
-    padding: 5px;
+    padding: 20px 10px;
+    background-color: #3E3B44;
+  }
+  .navbar-principal li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  #carousel {
+    background-image: none !important;
+    background-color: transparent;
+  }
+  .navbar-principal .dropdown.open .dropdown-toggle {
+    color: #E8701E;
+  }
+  .navbar-principal ul li ul li a {
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width:500px) {
+    #carousel-principal, #carousel img {
+    height: 150px;
+  }
+}
+
+@media (max-width:380px) {
+  #carousel-principal, #carousel img {
+    height: 130px;
+  }
+  #versCatalogue {
+    padding: 5px 10px;
   }
 }

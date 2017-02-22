@@ -1,18 +1,18 @@
 {% extends "CUIPagesBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }} - {{ page.rubrique.nom }} - {{ page.nom }}{% endblock %}
+{% block title %}{{ parent() }} - {{ page.rubrique.nom | default("") }} - {{ page.nom }}{% endblock %}
 
 {% block banniere %}
 	<div class="item active">
-		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages_'~ page.rubrique.id ~'.jpg' ) }}" alt="banniere" />
+		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages_'~ page.rubrique.id | default("") ~'.jpg' ) }}" alt="banniere" />
 	</div>
 {% endblock %}
 
 {% block content %}
-	<div class="container">
+	<div class="container margePage">
 		<div id="header-page">
 
-			<h1>{{ page.rubrique.nom|upper }}</h1>
+			<h1>{{ page.rubrique.nom | default("") | upper }}</h1>
 
 			<h2>{{ page.titre|upper }}</h2>
 

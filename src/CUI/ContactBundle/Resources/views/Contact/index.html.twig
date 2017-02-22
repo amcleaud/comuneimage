@@ -1,0 +1,76 @@
+{% extends "CUIPagesBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Contactez-Nous{% endblock %}
+
+{% block banniere %}
+	<div class="item active">
+		    <img src="{{ asset('bundles/cuipages/images/bandeau_pages_.jpg' ) }}" alt="banniere" />
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="container margePage">
+		<div id="header-page">
+
+			<h1>CONTACTEZ-NOUS</h1>
+
+			{# <h2>titre2</h2> #}
+
+		</div>
+
+		<div id="contenu-page">
+
+			{% for key, messages in app.session.flashbag.all() %}
+	        	{% for message in messages %}
+		          	<div class="alert alert-{{ key }}">
+		            	{{ message }}
+		          	</div>
+	        	{% endfor %}
+	    	{% endfor %}
+
+			{{ form_start(form) }}
+			    {{ form_errors(form) }}
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+					    {{ form_row(form.nom) }}
+					    {{ form_row(form.adresse) }}
+					    {{ form_row(form.telephone) }}
+					    {{ form_row(form.fonction) }}
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						{{ form_row(form.entreprise) }}
+						{{ form_row(form.codePostal) }}
+					    {{ form_row(form.ville) }}
+					    {{ form_row(form.email) }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+				    	{{ form_row(form.contenu) }}
+				    </div>
+				</div>
+			    <div class="row">
+			    	<div class="col-sm-12">
+			    		{{ form_row(form.envoyer) }}
+			    	</div>
+			    </div>
+			</div>
+			{{ form_end(form) }}
+			<div class="clearfix"></div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+	  <link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
+	  <link rel="stylesheet" href="{{ asset('bundles/cuicontact/css/index.css') }}" type="text/css" />
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('bundles/cuipages/js/view.js') }}"></script>
+{% endblock %}

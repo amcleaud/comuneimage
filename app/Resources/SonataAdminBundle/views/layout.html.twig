@@ -7,8 +7,21 @@
     <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/markdown/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/html/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/textile/style.css') }}" type="text/css" />
-     %}
+    <link rel="stylesheet" href="{{ asset('/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/cuicore/css/main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
 
+{% endblock %}
+
+{% block logo %}
+    {% spaceless %}
+        <a class="logo" href="{{ path('sonata_admin_dashboard') }}">
+            <img src="{{ asset('bundles/cuicore/images/logo.png') }}" alt="Logo CUI" />
+        </a>
+    {% endspaceless %}
+{% endblock %}
+
+{% block side_bar_after_nav_content %}
 {% endblock %}
 
 {% block javascripts %}
@@ -19,5 +32,7 @@
     <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/markdown/set.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/html/set.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/sonataformatter/markitup/sets/textile/set.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/sonatacore/vendor/moment/min/moment-with-locales.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
 {% endblock %}
 

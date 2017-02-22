@@ -4,7 +4,14 @@
 
 {% block banniere %}
 	<div class="item active">
-		<img src="{{ asset('bundles/cuipages/images/bandeau_pages.jpg') }}" alt="banniere" />
+		<video playsinline autoplay muted loop id="bgvid" poster="{{ asset('bundles/cuicoupdecoeur/images/bandeau_cdc.jpg') }}" style="min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;">
+		    <source src="{{ asset('bundles/cuicoupdecoeur/videos/coeurs.webm') }}" type="video/webm">
+		    <source src="{{ asset('bundles/cuicoupdecoeur/videos/coeurs.mp4') }}" type="video/mp4">
+		</video>
 	</div>
 {% endblock %}
 
@@ -12,81 +19,163 @@
 	<div class="container">
 		<div id="header-page">
 
-			<h1>Coups de coeur</h1>
+			<h1>Nos coups de coeur</h1>
+			<h2>À la une</h2>
 
 		</div>
 
 		<div id="contenu-page">
 
 			<div class="jumbotron">
-				<h1>{{ news1.titre }}</h1>
+				<h3>{{ news1.titre }}</h3>
+				{{ news1.description|raw }}
 				{% for cadeau in news1.cadeaux|sortbyfield('ordre') %}
 					<div class="panel panel-default">
-					  <div class="panel-heading">
-					    <h3 class="panel-title">{{ cadeau.nom }}</h3>
-					  </div>
 					  <div class="panel-body">
-					  	<div id="carousel-{{ cadeau.id }}" class="carousel slide photoCadeauSlide" data-ride="carousel">
-						  <!-- Indicators -->
-						  {% if cadeau.photos|length> 1 %}
-							  <ol class="carousel-indicators">
-							  	{% for key, photo in cadeau.photos %}
-							  		<li data-target="#carousel-{{ cadeau.id }}" data-slide-to="{{ key }}" {%if key == 0 %}class="active"{%endif %} ></li>
-							    {% endfor %}
-							  </ol>
-							 {% endif %}
-
-						  <!-- Wrapper for slides -->
-						  <div class="carousel-inner" role="listbox">
-						  	{% for photo in cadeau.photos[0:1] %}
-							  	<div class="item active">
-							      {% media photo.image, 'small' %}
-							    </div>
-					  		{% endfor %}
-						  	{% for photo in cadeau.photos[1:] %}
-							  	<div class="item">
-							      {% media photo.image, 'small' %}
-							    </div>
-					  		{% endfor %}
-						  </div>
-
-					  	{% if cadeau.photos|length > 1 %}
-							  <!-- Controls -->
-							  <a class="left carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="prev">
-							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							    <span class="sr-only">Previous</span>
-							  </a>
-							  <a class="right carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="next">
-							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							    <span class="sr-only">Next</span>
-							  </a>
-						{% endif %}
+					  	<div class="col-sm-12 col-md-6">
+							<h4 class="panel-title">{{ cadeau.nom }}</h4>
+						  	{{ cadeau.description|raw }}
 						</div>
+					  	<div class="col-sm-12 col-md-6">
+						  	<div id="carousel-{{ cadeau.id }}" class="carousel slide photoCadeauSlide" data-ride="carousel">
+							  <!-- Indicators -->
+							  {% if cadeau.photos|length> 1 %}
+								  <ol class="carousel-indicators">
+								  	{% for key, photo in cadeau.photos %}
+								  		<li data-target="#carousel-{{ cadeau.id }}" data-slide-to="{{ key }}" {%if key == 0 %}class="active"{%endif %} ></li>
+								    {% endfor %}
+								  </ol>
+								 {% endif %}
 
-					  	<p>{{ cadeau.description }}</p>
+							  <!-- Wrapper for slides -->
+							  <div class="carousel-inner" role="listbox">
+							  	{% for photo in cadeau.photos[0:1] %}
+								  	<div class="item active">
+								      {% media photo.image, 'reference' %}
+								    </div>
+						  		{% endfor %}
+							  	{% for photo in cadeau.photos[1:] %}
+								  	<div class="item">
+								      {% media photo.image, 'reference' %}
+								    </div>
+						  		{% endfor %}
+						  		<div class="pauseCarousel"></div>
+							  </div>
+
+						  	{% if cadeau.photos|length > 1 %}
+								  <!-- Controls -->
+								  <a class="left carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="prev">
+								    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								    <span class="sr-only">Précédent</span>
+								  </a>
+								  <a class="right carousel-control" href="#carousel-{{ cadeau.id }}" role="button" data-slide="next">
+								    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								    <span class="sr-only">Suivant</span>
+								  </a>
+							{% endif %}
+							</div>
+						</div>
+						<div class="clearfix"></div>
 					  </div>
 					</div>
 				{% endfor %}
-				<p><a class="btn btn-primary btn-lg" href="{{ news1.lienFacebook }}" role="button">Pour voir les autres go FB</a></p>
+				{# <p><a class="btn btn-primary btn-lg" href="{{ news1.lienFacebook }}" role="button">Pour voir les autres go FB</a></p> #}
+				<div class="container-fluid text-center">
+					<p class="msgOrange">Ces produits vous intéressent ?<br/>Vous souhaitez un devis ?</p>
+					<a class="btn btn-warning" href="mailto:{{ contact_mail }}" role="button">Contactez-nous</a>
+				</div>
+			</div>
+			<h2>Découvrez aussi...</h2>
+			<div class="container-fluid">
+				<div class="col-sm-12 col-md-6 nopadding-left">
+					<div class="panel panel-default panel-news">
+						<div class="panel-heading"><h3>{{ news2.titre }}</h3></div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div class="col-sm-6">
+									<ul class="">
+									{% for cadeau in news2.cadeaux|sortbyfield('ordre') %}
+										<li>{{ cadeau.nom }}</li>
+									{% endfor %}
+									</ul>
+								</div>
+								<div class="col-sm-6">
+									<div class="container-fluid text-center miniPhoto">
+										{% set cadeaunews2 = news2.cadeaux|sortbyfield('ordre')|first %}
+										{% set photonews2 = cadeaunews2.photos|first %}
+										{% media photonews2.image, 'reference' %}
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="panel-footer text-center">
+							<a class="btn btn-danger" data-toggle="modal" href="{{ path('cui_coupdecoeur_view', {'id': news2.id, 'lien': news2.lien}) }}" data-target="#newsModal" role="button">Plus d'infos</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 nopadding-right">
+					<div class="panel panel-default panel-news">
+						<div class="panel-heading"><h3>{{ news3.titre }}</h3></div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div class="col-sm-6">
+									<ul class="">
+									{% for cadeau in news3.cadeaux|sortbyfield('ordre') %}
+										<li>{{ cadeau.nom }}</li>
+									{% endfor %}
+									</ul>
+								</div>
+								<div class="col-sm-6">
+									<div class="container-fluid text-center miniPhoto">
+										{% set cadeaunews3 = news3.cadeaux|sortbyfield('ordre')|first %}
+										{% set photonews3 = cadeaunews3.photos|first %}
+										{% media photonews3.image, 'reference' %}
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="panel-footer text-center">
+							<a data-toggle="modal" class="btn btn-danger" href="{{ path('cui_coupdecoeur_view', {'id': news3.id, 'lien': news3.lien}) }}" data-target="#newsModal" role="button">Plus d'infos</a>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<nav aria-label="Page navigation">
-			  <ul class="pagination">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    	{% for news in newsletters %}
-				    	<li><a href="{{ path('cui_coupdecoeur_view', {'id': news.id, 'lien': news.lien}) }}">{{ news.datePublication|date("m/Y") }} - {{news.titre}}</a></li>
-					{% endfor %}
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
+			<h2>Archives</h2>
+			<div class="container pagin">
+		        <div class="item">
+		            <ul id="content-slider" class="content-slider">
+		            	{% for news in newsletters %}
+	                    	<li>
+		                        <div class="paginationPhoto">
+		                        	{% set cadeaunewsold = news.cadeaux|sortbyfield('ordre')|first %}
+									{% set photonewsold = cadeaunewsold.photos|first %}
+		                            <a data-toggle="modal" href="{{ path('cui_coupdecoeur_view', {'id': news.id, 'lien': news.lien}) }}" data-target="#newsModal">{% media photonewsold.image, 'reference' %}</a>
+		                        </div>
+		                        <div class="paginationText"><a data-toggle="modal" href="{{ path('cui_coupdecoeur_view', {'id': news.id, 'lien': news.lien}) }}" data-target="#newsModal">{{ news.dateEmailing|date("m/Y") }}</a></div>
+		                    </li>
+		                {% endfor %}
+		            </ul>
+		        </div>
+
+		    </div>
+
+		    <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog">
+	    			<div class="modal-content">
+	    				<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+							<div class="enChargement">
+								<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Chargement...
+							</div>
+						</div>
+	    			</div>
+	    		</div>
+	    	</div>
 
 		</div>
 	</div>
@@ -97,5 +186,16 @@
 	{{ parent() }}
 
 	<link rel="stylesheet" href="{{ asset('bundles/cuipages/css/view.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('bundles/cuicoupdecoeur/css/index.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('bundles/cuicoupdecoeur/css/lightslider.css') }}" type="text/css" />
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+
+	<script src="{{ asset('bundles/cuicoupdecoeur/js/lightslider.js') }}"></script>
+	<script src="{{ asset('bundles/cuicoupdecoeur/js/index.js') }}"></script>
 
 {% endblock %}

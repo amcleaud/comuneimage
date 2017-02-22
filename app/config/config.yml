@@ -8,6 +8,7 @@ imports:
     - { resource: sonata_classification.yml }
     - { resource: sonata_media.yml }
     - { resource: ivory/ivory_ckeditor.yml }
+    - { resource: "@CUIContactBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -44,8 +45,11 @@ twig:
     strict_variables: "%kernel.debug%"
     form_themes:
         - 'SonataFormatterBundle:Form:formatter.html.twig'
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
+        - 'bootstrap_3_layout.html.twig'
     globals:
         nomsite: %app_nomsite%
+        slogansite: %app_slogansite%
         contact_ville: %app_contact_ville%
         contact_cp: %app_contact_cp%
         contact_rue: %app_contact_rue%
@@ -139,6 +143,7 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts: [admin]
+        sonata.block.service.text:
 
 fos_user:
     db_driver: orm
@@ -150,6 +155,7 @@ sonata_admin:
     templates:
         # default global templates
         layout:  SonataAdminBundle::layout.html.twig
+        preview: CUICoupdecoeurBundle:Coupdecoeur:preview.html.twig
     dashboard:
         blocks:
             # display two dashboard blocks
@@ -157,18 +163,22 @@ sonata_admin:
                 position: left
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [coups_de_coeur]
+                    groups: [coups_de_coeur, pages_du_site]
             -
                 position: right
-                type: sonata.admin.block.admin_list
+                type: sonata.block.service.text
                 settings:
-                    groups: [pages_du_site]
+                    content: >
+                        <h2>Administration du site</h2>Vous pouvez choisir une rubrique dans le menu à gauche pour modifier ou ajouter du contenu sur le site.
+
 
         groups:
             coups_de_coeur:
+                label: Coup de Coeur
                 items:
                     - admin.newsletter
             pages_du_site:
+                label: Pages du site
                 items:
                     - admin.page
                     - admin.rubrique

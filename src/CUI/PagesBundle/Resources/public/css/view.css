@@ -2,6 +2,10 @@
 	margin-bottom: 0;
 }
 
+.margePage {
+	padding-left: 100px;
+}
+
 #header-page h1 {
 	color: #E42A30;
 	font-family:  Arvo;
@@ -13,7 +17,7 @@
 	font-family:  Arvo;
 	font-weight: bold;
 	font-size: 30px;
-	width: 400px;
+	max-width: 400px;
 }
 
 #contenu-page {
@@ -22,13 +26,18 @@
   	line-height: 1.2;
 }
 
+#contenu-page img {
+	max-width: 100%;
+}
+
 .big-letter {
 	float: left;
-	font-size: 100px;
+	font-size: 120px;
 	line-height: 78px;
 	padding-top: 4px;
-	padding-right: 8px;
-	padding-left: 3px;
+	padding-right: 15px;
+	padding-left: 0;
+	margin-left: -5px;
 	padding-bottom: 4px;
 	font-family: Arvo;
 	display: inline;
@@ -56,8 +65,8 @@
 
 .blocEquipier .photoEquipier {
 	position: relative;
-	height:296px;
-	width:299px;
+	height:275px;
+	width:275px;
 }
 
 .blocEquipier .photoEquipier img {
@@ -65,6 +74,7 @@
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
+	max-width: none !important;
 }
 
 .blocEquipier .msgEquipier {
@@ -72,7 +82,7 @@
 	position: absolute;
 	color: white;
 	font-family: Arvo;
-	top: 40%;
+	top: 35%;
 	text-align: center;
 	width: 80%;
 	margin-left: 10%;
@@ -119,8 +129,6 @@
 }
 
 .mapImage {
-	float:right;
-	margin-left:30px;
 	width: 705px;
 	text-align: center;
 	position: relative;
@@ -187,5 +195,109 @@ area:hover {
 	font-size: 16px;
 	font-weight: bold;
 	width: 200px;
-	margin-top: 200px;
+	max-width: 100%;
+	margin-top: 100px;
+}
+
+@media (min-width: 992px) {
+	#contenu-page .colAdroite {
+		padding-right: 0;
+	}
+	#contenu-page .colAgauche {
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 1000px) {
+	.mapImage, .mapImage img {
+		max-width: 100%;
+		height: auto !important;
+		margin-top: 0 !important;
+		margin-left: 0 !important;
+	}
+
+	map, area {
+		display: none !important;
+		height: 0 !important;
+		width: 0 !important;
+		pointer-events: none !important;
+		z-index: -500;
+	}
+
+	.fleche-grise {
+		display: none;
+	}
+
+	.labelProduit {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		width: 100%;
+		display: block;
+		position: static;
+	}
+}
+
+@media (max-width: 991px) {
+	.margePage {
+	padding-left: 15px;
+	}
+	#contenu-page img, #contenu-page .mapImage {
+		margin-top: 0 !important;
+	}
+
+	.big-letter {
+  	font-size: 80px;
+	line-height: 70px;
+  }
+  .labelProduit {
+  	font-size: 13px;
+  	line-height: 30px;
+  }
+  .labelProduit .numeroProduit {
+  	border-width: 1px;
+  	padding: 0;
+  	width: 20px;
+	height: 20px;
+	line-height: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  #header-page h1 {
+    font-size: 30px;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  #header-page h2, #contenu-page h2 {
+    font-size: 26px;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
+}
+
+@media (max-width: 479px) {
+  #header-page h1 {
+    font-size: 24px;
+  }
+  #header-page h2, #contenu-page h2 {
+  	font-size: 20px;
+  }
+  .big-letter {
+  	font-size: 60px;
+	line-height: 50px;
+  }
+  .big-letter + p > span:first-of-type {
+  	font-size: 13px !important;
+  }
+}
+
+@media (max-width: 425px) {
+	#contenu-page {
+		overflow-x: hidden;
+	}
 }

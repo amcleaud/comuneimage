@@ -20,8 +20,11 @@ class CadeauAdmin extends AbstractAdmin
         $formMapper
             ->with('Infos')
                 ->add('nom', 'text')
-                ->add('description', 'textarea')
-                ->add('ordre', 'number')
+                ->add('description', 'sonata_simple_formatter_type', array(
+                                                                            'format' => 'richhtml',
+                                                                            'ckeditor_context'     => 'desckdo'
+                                                                        ))
+                ->add('ordre', 'hidden',array('attr'=>array("hidden" => true)))
             ->end()
             ->with('Photos')
                 ->add('photos', 'sonata_type_collection', array('by_reference' => 'false'), array('edit' => 'inline', 'inline' => 'table'))

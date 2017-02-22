@@ -3,11 +3,11 @@
 
 		<div class="row" id="contact">
 
-			<div id="contact_infos" >
+			<div id="contact_infos" itemscope itemtype="http://schema.org/Organization" >
 				<h1>Contactez-nous</h1>
-				<h3>{{ contact_rue }}, {{ contact_cp }} {{ contact_ville }}</h3>
-				<h2>{{ contact_tel }}</h2>
-				<h4><a href="mailto:{{ contact_mail }}">{{ contact_mail }}</a></h4>
+				<h3 itemprop="location">{{ contact_rue }}, {{ contact_cp }} {{ contact_ville }}</h3>
+				<h2 itemprop="telephone">{{ contact_tel }}</h2>
+				<h4><a itemprop="email" href="mailto:{{ contact_mail }}">{{ contact_mail }}</a></h4>
 			</div>
 
 			<div id="contact_follow">
@@ -16,16 +16,16 @@
 					<a href="{{ facebook }}" target="_BLANK">
 						<img src="{{ asset('bundles/cuicore/images/logo_fb_contact.png') }}" alt="facebook" />
 					</a>
-					<a href="#" target="_BLANK">
+					{# <a href="#" target="_BLANK">
 						<img src="{{ asset('bundles/cuicore/images/logo_lkdn_contact.png') }}" alt="Linkedin" />
-					</a>
+					</a> #}
 				</p>
 			</div>
 
 		</div>
 
 		<div class="row" id="final_footer">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="container">
 				{% for rub in menu %}
 					<div class="col-md-{{ nbrub }} footer_section">
 						<h1>{{ rub.nom }}</h1>
@@ -40,8 +40,8 @@
 				<div class="col-md-{{ nbrub }} footer_section" id="final_infos">
 					<ul class="nav nav-pills nav-stacked">
 						<li>© 2016 Com' &amp; une image</li>
-						<li><a href="#">Mentions Légales</a></li>
-						<li><a href="#">Conditions générales de vente</a></li>
+						<li><a href="{{ path('cui_pages_view', {'id': 11, 'lien': 'mentions-legales.html'}) }}">Mentions Légales</a></li>
+						<li><a href="{{ path('cui_pages_view', {'id': 9, 'lien': 'cgv.html'}) }}">Conditions générales de vente</a></li>
 					</ul>
 				</div>
 			</div>
